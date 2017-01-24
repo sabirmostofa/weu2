@@ -4,7 +4,7 @@
             "name": "Coriolis mass flowmeter (RotaMass)",
             "product": [
                 {
-                    "name": "Coriolis mass flowmeter (RotaMass)",
+                    "name": "Rotamass3",
                     "image": "Rotamass3"
                 }
             ]
@@ -32,7 +32,7 @@
             ]
         },
         {
-            "name": "YewFloDy",
+            "name": "Magmeter",
             "product": [
                 {
                     "name": "RX",

@@ -1,369 +1,378 @@
 <html>
-<head>
-<title>Formular</title>
-<meta charset="utf-8"/>
-<script src="js/jquery-3.1.1.min.js"></script>
-<script src="js/script.js"></script>
-<style>
-html {
-	position: relative;
-	background-color: #eff5f9;
-	background-position: top center;
-	width: 700px;
-	height: 600px;
-        margin: 0 auto;
-}
+    <head>
+        <title>Formular</title>
+        <meta charset="utf-8"/>
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/script.js"></script>
+        <style>
+            html {
+                position: relative;
+                background-color: #eff5f9;
+                background-position: top center;
+                width: 700px;
+                height: 600px;
+                margin: 0 auto;
+            }
 
-body {		 
-	font-family: Verdana;
-	font-size: 11.3px;	
-	margin: 0;
-}
+            body {		 
+                font-family: Verdana;
+                font-size: 11.3px;	
+                margin: 0;
+            }
 
-.header {
-	position: relative;
-	background-color: #c2cfd6;
-	height: 25px;
-	width: 100%
-}
+            .header {
+                position: relative;
+                background-color: #c2cfd6;
+                height: 25px;
+                width: 100%
+            }
 
-.header img {
-	position: relative;
-	float: left;
-	padding-top: 0.9%;
-	margin-left: 3px;
-	width: 8px;
-	height: 8px;
-}
+            .header img {
+                position: relative;
+                float: left;
+                padding-top: 0.9%;
+                margin-left: 3px;
+                width: 8px;
+                height: 8px;
+            }
 
-.header h4 {
-	position: relative;
-	left: 5px;
-	padding-top: 0.5%;
-}	
+            .header h4 {
+                position: relative;
+                left: 5px;
+                padding-top: 0.5%;
+            }	
 
-.first_section label {
-	position: relative;
-    float: left;
-    margin-left: 1%;
-    padding-top: 5px;
-    width: 30%;
-}
-.first_section select {
-    position: relative;
-    width: 42%;
-}
+            .first_section label {
+                position: relative;
+                float: left;
+                margin-left: 1%;
+                padding-top: 5px;
+                width: 30%;
+            }
+            .first_section select {
+                position: relative;
+                width: 42%;
+            }
 
-.first_section img {
-	position: relative;
-    float: right;
-    margin-right: 5%;
-}
+            .first_section img {
+                position: relative;
+                float: right;
+                margin-right: 15%;
+            }
 
-.second_section label {
-	position: relative;
-	margin-left: 1%;
-	padding-top: 3px;
-	float: left;
-	width: 30%;
-}
+            .second_section label {
+                position: relative;
+                margin-left: 1%;
+                padding-top: 3px;
+                float: left;
+                width: 30%;
+            }
 
-.third_section label {
-	position: relative;
-	float: left;
-	margin-left: 1%;
-	padding-top: 3px;
-	width: 30%;
-}
-	
-.third_section select {		
-	position: relative;
-	width: 42%;
-}
+            .third_section label {
+                position: relative;
+                float: left;
+                margin-left: 1%;
+                padding-top: 3px;
+                width: 30%;
+            }
 
-.third_section span {
-	position: relative;
-	float: right;
-	margin-right: 13.8%;
-}
+            .third_section select {		
+                position: relative;
+                width: 42%;
+            }
 
-.fourth_section_header {
-	width: 100%;
-	padding-left: 30%;
-	padding-right: 5%;
-}
-.min {
-	margin-left: 1%;
-	padding-right: 2.5%;
-}
-.operate {
-	padding-right: 2.5%;
-}
-	
-.fourth_section_1 label {
-	float: left;
-	margin-left: 1%;
-	padding-top: 2px;
-	width: 30%;
-}
+            .third_section span {
+                position: relative;
+                float: right;
+                margin-right: 13.8%;
+            }
 
-.fourth_section_1 input {
-	width: 10%;
-}
+            .fourth_section_header {
+                width: 100%;
+                padding-left: 30%;
+                padding-right: 5%;
+            }
+            .min {
+                margin-left: 1%;
+                padding-right: 2.5%;
+            }
+            .operate {
+                padding-right: 2.5%;
+            }
 
-.fourth_section_1 select {
-	width: 10.5%;
-}
+            .fourth_section_1 label {
+                float: left;
+                margin-left: 1%;
+                padding-top: 2px;
+                width: 30%;
+            }
 
-.fourth_section_1 img {
-	margin-right: 1%;
-	float: right;
-}
+            .fourth_section_1 input {
+                width: 10%;
+            }
 
-.fourth_section_2 label {	
-	float: left;
-	margin-left: 1%;
-	width: 30%;
-}
+            .fourth_section_1 select {
+                width: 10.5%;
+            }
 
-.fourth_section_2 input {
-	background: transparent;
-	width: 31.2%;
-}
+            .fourth_section_1 img {
+                margin-right: 1%;
+                float: right;
+            }
 
-.fourth_section_2 select {
-	width: 10.4%;
-}
+            .fourth_section_2 label {	
+                float: left;
+                margin-left: 1%;
+                width: 30%;
+            }
 
-.fifth_section_1 label {
-	position: relative;
-    float: left;
-    margin-left: 1%;
-    padding-top: 5px;
-	width: 30%;
-}
+            .fourth_section_2 input {
+                background: transparent;
+                width: 31.2%;
+            }
 
-.fifth_section_1 select {
-	width: 42.1%;
-}	
+            .fourth_section_2 select {
+                width: 10.4%;
+            }
 
-.fifth_section_header {
-	width: 100%;
-	padding-left: 30%;
-	padding-right: 2%;
-}
+            .fifth_section_1 label {
+                position: relative;
+                float: left;
+                margin-left: 1%;
+                padding-top: 5px;
+                width: 30%;
+            }
 
-.minimum { 
-	position: relative;
-	margin-left: 1%;
-	padding-right: 3%;
-}
+            .fifth_section_1 select {
+                width: 42.1%;
+            }	
 
-.operating {
-	position: relative;
-	padding-right: 2.5%;
-}
+            .fifth_section_header {
+                width: 100%;
+                padding-left: 30%;
+                padding-right: 2%;
+            }
 
-.maximum {
-	position: relative;
-	padding-right: 2.5%;
-}
+            .minimum { 
+                position: relative;
+                margin-left: 1%;
+                padding-right: 3%;
+            }
 
-.fifth_section_2 label {
-	position: relative;
-	float: left;
-	margin-left: 1%;
-	padding-top: 5px;
-	width: 30%;
-}
+            .operating {
+                position: relative;
+                padding-right: 2.5%;
+            }
 
-.fifth_section_2 input {
-	width: 10.1%;
-}
+            .maximum {
+                position: relative;
+                padding-right: 2.5%;
+            }
 
-.fifth_section_2 select {
-	float: right;
-	margin-right: 1%;
-	width: 25.7%;
-}
+            .fifth_section_2 label {
+                position: relative;
+                float: left;
+                margin-left: 1%;
+                padding-top: 5px;
+                width: 30%;
+            }
 
-.sixth_section label {
-	position: relative;
-    float: left;
-    padding-top: 5px;
-    padding-left: 55%;
-    width: 25%;
-}
-.sixth_section select {
-    position: relative;
-    margin-right: 1%;
-    width: 19%;
-}
+            .fifth_section_2 input {
+                width: 10.1%;
+            }
 
-.push_buttons {
-	background-color: white;
-	width: 100%;
-	height: 8%;
-}
+            .fifth_section_2 select {
+                float: right;
+                margin-right: 1%;
+                width: 25.7%;
+            }
 
-.left_buttons {
-	float: left;
-	margin-left: 1%;
-	padding-right: 5%;
-	padding-bottom: 0.6%;
-}
+            .sixth_section label {
+                position: relative;
+                float: left;
+                padding-top: 5px;
+                padding-left: 55%;
+                width: 25%;
+            }
+            .sixth_section select {
+                position: relative;
+                margin-right: 1%;
+                width: 19%;
+            }
 
-.right_button {
-	opacity: 0.5;
-	float: right;
-	margin-right: 1%;
-}
-</style>
-</head>
-<body>
-	<div class="header">
-		<img src="img/headerdot.svg"/>
-		<h4>FLOWMETER TYPES</h4>
-	</div>
-		
-	<div class="first_section">
-		<img src="img/RotamassAll.svg" alt="RotaMass"/>
-		<label>Technology:</label>
-		<select id="technology" class="first_section_dropdown">
-  			<option value="Coriolis mass flowmeter (RotaMASS)">Coriolis mass flowmeter (RotaMASS)</option>
-		</select>		
-		<br>	
-		<label>Product line:</label>
-		<select id="product" class="first_section_dropdown">
-			<option value="all">All</option>
-		</select>
-	</div>
-	<hr width="100%" size="4" noshade color="white">	
-	<div class="header">
-		<img src="img/headerdot.svg"/>
-		<h4>PROCESS DATA</h4>
-	</div>	
-	<div class="second_section">
-		<label for="fluidtype">Fluid Type:</label>
-		<input type="radio" name="liquid" value="liquid"checked="true">liquid
-		<input type="radio" name="gaseous" value="gaseous">gaseous
-	</div>
-	<hr width="100%" size="2" noshade color="white">
-	
-	<div class="third_section">
-		<label>Fluid:</label>
-		<select>
-  			<option value="water">water</option>
-		</select>
-		<span><input type="checkbox" name="custom_fluid">Custom fluid</span>
-		<br>		
-		<label>Formula:</label>
-		<select>
-			<option value="h2o">H2O</option>
-		</select>		
-	</div>
-	
-	<hr width="100%" size="2" noshade color="white">
-	
-	<div class="fourth_section_header">
-		<label class="min">Minimum</label>
-		<label class="operate">Operating</label>
-		<label class="max">Maximum</label>		
-	</div>
-	<form action="index.html" method="post">
-	<div class="fourth_section_1">
-		<label for="temperature">Temperature:</label><img src="img/help.svg"/>
-		<input type="text" name="temperatureMin" value="">
-		<input type="text" name="temperatureOperating" value="@temperature">
-		<input type="text" name="temperatureMax" value="">	
-		<select>
-  			<option value="Celsius">°C</option>
-		</select>
-		<br>
-		<label for="pressure" class="label">Pressure:</label><img src="img/help.svg"/>
-		<input type="text" name="pressureMin" value="">
-		<input type="text" name="pressureOperating" value="@pressure">
-		<input type="text" name="pressureMax" value="">	
-		<select>
-  			<option value="bar">bar</option>
-		</select>
-		<span><select class="abs">
-			<option value="abs">abs</option>
-		</select></span>
-		</div>
-	</div>
-	<div class="fourth_section_2">
-		<label for="viscosity" class="label">Viscosity:</label>
-		<input type="text" name="viscosityValue" value="1.0026">
-		<select>
-  			<option value="mPas">mPas</option>
-  		</select>
-  		<br>
- 		<label for="density" class="label">Density:</label>
-		<input type="text" name="densityValue" value="@density">
-		<select>
-  			<option value="kg">kg/m³</option>
-  		</select> 		  		
-	</div>
-	<hr width="100%" size="2" noshade color="white">
-	
-	<div class="fifth_section_1">
-		<label for="kindofflow" class="label">Kind of flow:</label>
-		<select>
-			<option value="massflow">Mass flow</option>
-		</select> 
-  	</div>	
-		<div class="fifth_section_header">
-		<label class="minimum">Minimum</label>
-		<label class="operating">Operating</label>
-		<label class="maximum">Maximum</label>
-		<label class="design">Design</label>
-	</div>
-	<div class="fifth_section_2">	
-		<label for="flowrate" class="label">Flow rate:</label>
-		<input type="text" name="flowrateMin" value="">
-		<input type="text" name="flowrateOperating" value="100">
-		<input type="text" name="flowrateMax" value="">	
-		<input tzpe="text" name="flowrateDesign" value="">
-	<select>
-		<option value="kgh">kg/h</option>
-	</select>
-	</div>
-	<hr width="100%" size="4" noshade color="white">
-	<div class="header">
-		<img src="img/headerdotDown.svg"/>
-		<h4>BASIC FILTER</h4>
-	</div>	
-	<div class = "sixth_section">
-		<label>Converter mounting type:</label>
-		<select>
-  			<option value="all">All</option>
-		</select>		
-		<br>			
-		<label>Flow Accuracy:</label>
-		<select>
-			<option value="all">All</option>
-		</select>
-		<br>		
-		<label>Density Accuracy:</label>
-		<select>
-  			<option value="all">All</option>
-		</select>	
-		<br>		
-		<label>Converter Type:</label>
-		<select>
-			<option value="all">All</option>
-		</select>
-	</div>
-		
-	<div class="push_buttons">
-		<hr width="100%" size="0.5" noshade color="white">
-		<hr width="100%" size="0.1" noshade color="red">
-		<div class="left_buttons"><input type="image" value="submit" src="img/Calculate.svg"/><label> Calculate</label></div>
-		<div class="left_buttons"><input type="image" src="img/Reset.svg"/><label> Reset</label></div>
-		<div class="right_button"><input type="image" src="img/Projectdata.svg"/><label> Project settings</label></div>
-		<hr width="100%" size="0.1" noshade color="red">		
-	</div>
-	</form>
-	</body>
+            .push_buttons {
+                background-color: white;
+                width: 100%;
+                height: 8%;
+            }
+
+            .left_buttons {
+                float: left;
+                margin-left: 1%;
+                padding-right: 5%;
+                padding-bottom: 0.6%;
+            }
+
+            .right_button {
+                opacity: 0.5;
+                float: right;
+                margin-right: 1%;
+            }
+
+            #product { pointer-events: none; color: #808080; }
+            #product.active { pointer-events: auto; color:black; }
+            
+            
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <img src="img/headerdot.svg"/>
+            <h4>FLOWMETER TYPES</h4>
+        </div>
+
+        <div class="first_section">
+
+            <img id="technoImg" src="" alt="RotaMass"/>
+            <label>Technology:</label>
+            <select id="technology" class="first_section_dropdown">
+                <option value="Coriolis mass flowmeter (RotaMASS)">Please select one technology</option>
+            </select>		
+            <br>	
+            <div id="productContainer">
+                <label>Product line:</label>
+                <select id="product" class="first_section_dropdown">
+                    <option value="all">All</option>
+                </select>
+            </div>
+            
+        </div>
+        <hr width="100%" size="4" noshade color="white">	
+        <div class="header">
+            <img src="img/headerdot.svg"/>
+            <h4>PROCESS DATA</h4>
+        </div>	
+        <div class="second_section">
+            <label for="fluidtype">Fluid Type:</label>
+            <input type="radio" name="liquid" value="liquid"checked="true">liquid
+            <input type="radio" name="gaseous" value="gaseous">gaseous
+        </div>
+        <hr width="100%" size="2" noshade color="white">
+
+        <div class="third_section">
+            <label>Fluid:</label>
+            <select>
+                <option value="water">water</option>
+            </select>
+            <span><input type="checkbox" name="custom_fluid">Custom fluid</span>
+            <br>		
+            <label>Formula:</label>
+            <select>
+                <option value="h2o">H2O</option>
+            </select>		
+        </div>
+
+        <hr width="100%" size="2" noshade color="white">
+
+        <div class="fourth_section_header">
+            <label class="min">Minimum</label>
+            <label class="operate">Operating</label>
+            <label class="max">Maximum</label>		
+        </div>
+        <form action="index.html" method="post">
+            <div class="fourth_section_1">
+                <label for="temperature">Temperature:</label><img src="img/help.svg"/>
+                <input type="text" name="temperatureMin" value="">
+                <input type="text" name="temperatureOperating" value="@temperature">
+                <input type="text" name="temperatureMax" value="">	
+                <select>
+                    <option value="Celsius">°C</option>
+                </select>
+                <br>
+                <label for="pressure" class="label">Pressure:</label><img src="img/help.svg"/>
+                <input type="text" name="pressureMin" value="">
+                <input type="text" name="pressureOperating" value="@pressure">
+                <input type="text" name="pressureMax" value="">	
+                <select>
+                    <option value="bar">bar</option>
+                </select>
+                <span><select class="abs">
+                        <option value="abs">abs</option>
+                    </select></span>
+            </div>
+        </div>
+        <div class="fourth_section_2">
+            <label for="viscosity" class="label">Viscosity:</label>
+            <input type="text" name="viscosityValue" value="1.0026">
+            <select>
+                <option value="mPas">mPas</option>
+            </select>
+            <br>
+            <label for="density" class="label">Density:</label>
+            <input type="text" name="densityValue" value="@density">
+            <select>
+                <option value="kg">kg/m³</option>
+            </select> 		  		
+        </div>
+        <hr width="100%" size="2" noshade color="white">
+
+        <div class="fifth_section_1">
+            <label for="kindofflow" class="label">Kind of flow:</label>
+            <select>
+                <option value="massflow">Mass flow</option>
+            </select> 
+        </div>	
+        <div class="fifth_section_header">
+            <label class="minimum">Minimum</label>
+            <label class="operating">Operating</label>
+            <label class="maximum">Maximum</label>
+            <label class="design">Design</label>
+        </div>
+        <div class="fifth_section_2">	
+            <label for="flowrate" class="label">Flow rate:</label>
+            <input type="text" name="flowrateMin" value="">
+            <input type="text" name="flowrateOperating" value="100">
+            <input type="text" name="flowrateMax" value="">	
+            <input tzpe="text" name="flowrateDesign" value="">
+            <select>
+                <option value="kgh">kg/h</option>
+            </select>
+        </div>
+        <hr width="100%" size="4" noshade color="white">
+        <div class="header">
+            <img src="img/headerdotDown.svg"/>
+            <h4>BASIC FILTER</h4>
+        </div>	
+        <div class = "sixth_section">
+            <label>Converter mounting type:</label>
+            <select>
+                <option value="all">All</option>
+            </select>		
+            <br>			
+            <label>Flow Accuracy:</label>
+            <select>
+                <option value="all">All</option>
+            </select>
+            <br>		
+            <label>Density Accuracy:</label>
+            <select>
+                <option value="all">All</option>
+            </select>	
+            <br>		
+            <label>Converter Type:</label>
+            <select>
+                <option value="all">All</option>
+            </select>
+        </div>
+
+        <div class="push_buttons">
+            <hr width="100%" size="0.5" noshade color="white">
+            <hr width="100%" size="0.1" noshade color="red">
+            <div class="left_buttons"><input type="image" value="submit" src="img/Calculate.svg"/><label> Calculate</label></div>
+            <div class="left_buttons"><input type="image" src="img/Reset.svg"/><label> Reset</label></div>
+            <div class="right_button"><input type="image" src="img/Projectdata.svg"/><label> Project settings</label></div>
+            <hr width="100%" size="0.1" noshade color="red">		
+        </div>
+    </form>
+</body>
 </html>

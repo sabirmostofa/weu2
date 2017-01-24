@@ -215,3 +215,7 @@ position: relative;
 push buttons label {
 	margin-bottom: 20px;
 	}
+
+        
+#product { pointer-events: none; color: #808080; }
+#product.active { pointer-events: auto; color:black; }

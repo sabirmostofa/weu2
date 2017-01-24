@@ -34,13 +34,13 @@ app.get('/api/technologies', function (req, res) {
 
 app.get('/api/fluids', function (req, res) {
     // First read existing users.
-    if (req.query.fluidType == "liquid") {
+    if (req.query.fluidType === "liquid") {
         fs.readFile(__dirname + "/" + "liquid.json", 'utf8', function (err, data) {
             liquids = JSON.parse(data);
 
             res.end(JSON.stringify(liquids));
         });
-    } else if (req.query.fluidType == "gas") {
+    } else if (req.query.fluidType === "gas") {
         fs.readFile(__dirname + "/" + "gas.json", 'utf8', function (err, data) {
             gases = JSON.parse(data);
 

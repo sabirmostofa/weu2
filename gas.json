@@ -1,0 +1,35 @@
+{
+    "gases": [
+        {
+            "name": "air",
+            "formula": "N2,O2,CO2",
+            "temp": "25",
+            "pressure": "6",
+            "viscosity": "0,018",
+            "density": "5,8"
+
+
+        },
+        {
+            "name": "acetone",
+            "formula": "C3H7OH",
+            "temp": "60",
+            "pressure": "1",
+            "viscosity": "0,0084",
+            "density": "2,18"
+
+
+        },
+        {
+            "name": "Benzol",
+            "formula": "C6H6",
+            "temp": "90",
+            "pressure": "1",
+            "viscosity": "0,0084",
+            "density": "2,7"
+
+
+        }
+
+    ]
+}

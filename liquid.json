@@ -1,0 +1,47 @@
+{
+    "liquids": [
+        {
+                "name": "water",
+                "formula": "H20",
+                "temp": "20",
+                "pressure": "5",
+                "viscosity": "1",
+                "density": "998"
+
+            
+        },
+        {
+                "name": "propanol",
+                "formula": "C3H7OH",
+                "temp": "40",
+                "pressure": "10",
+                "viscosity": "1,3",
+                "density": "768"
+
+            
+        },
+        {
+            
+                "name": "toluene",
+                "formula": "C6H5CH3",
+                "temp": "50",
+                "pressure": "15",
+                "viscosity": "0,42",
+                "density": "841"
+
+            
+        },
+        {
+            
+                "name": "acetone",
+                "formula": "CH3COCH3",
+                "temp": "50",
+                "pressure": "15",
+                "viscosity": "0,42",
+                "density": "841"
+
+            
+        }
+
+    ]
+}

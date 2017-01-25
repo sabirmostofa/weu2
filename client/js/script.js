@@ -1,13 +1,13 @@
 
 function calcuateDensity(d1, t1, t2, p1, p2) {
-    d2 = d1 * ((273.15 + T1) / (273.15 + T2)) * (p2 / p1);
+    d2 = d1 * ((273.15 + t1) / (273.15 + t2)) * (p2 / p1);
     return d2;
 
 }
 
-function calculateVisco(V1, T1, T2) {
+function calculateVisco(v1, t1, t2) {
 
-    V2 = (V1 * (273.15 + T1)) / (273.15 + T2);
+    v2 = v1 * ((273.15 + t1) / (273.15 + t2));
     return v2;
 }
 
@@ -22,6 +22,7 @@ jQuery(document).ready(function ($) {
 
     $('#productContainer').hide();
     $('#technoImg').hide();
+    $('.fourth_section_2 input').prop('disabled',true);
 
 //load data from api
     $.get("/api/technologies", function (data, status) {
@@ -234,14 +235,62 @@ jQuery(document).ready(function ($) {
 
 //submit button triggers
 
-$("#submit").click(function(e){
-    
-        var t2= $("#operatingTmp").val();
-        var p2 = $("#operatingPrs").val();
-        alert($('#formula').val());
+    $("#submit").click(function (e) {
+
+        // var t1, p1,d1,v1;
+        t2 = $("#operatingTmp").val();
+        p2 = $("#operatingPrs").val();
+        var liquid = $('#formula').val();
+        $.each(liquids, function (i, item) {
+
+            if (liquid === item.formula) {
+                t1 = item.temp;
+                p1 = item.pressure;
+                d1 = item.density;
+                v1 = item.viscosity;
+            }
+        });
+
+        $.each(gases, function (i, item) {
+
+            if (liquid === item.formula) {
+                t1 = item.temp;
+                p1 = item.pressure;
+                d1 = item.density;
+                v1 = item.viscosity;
+            }
+        });
+
+        d2 = calcuateDensity(d1, t1, t2, p1, p2);
+        v2 = calculateVisco(v1, t1, t2);
+
+        $("#operatingVis").val(v2.toFixed(4));
+
+        $("#operatingDen").val(d2.toFixed(4));
+        //alert(d2 + ' ' + v2 );
+
         e.preventDefault();
-    
-});
+
+    });
+
+    // custom fluid
+    $("#customFluid").change(function () {
+        if (this.checked) {
+            $('#fluid').hide();
+            $('#formulaContainer').hide();
+            $('#customFluidInput').show();
+
+            $('.fourth_section_2 input').val("").prop('disabled', false);
+            //Do stuff
+        } else {
+            $('#customFluidInput').hide();
+            $('#fluid').show();
+            $('#formulaContainer').show();
+            $('.fourth_section_2 input').prop('disabled',true);
+
+
+        }
+    });
 
 
 });

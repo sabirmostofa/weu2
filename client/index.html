@@ -127,8 +127,9 @@
             }
 
             .fourth_section_2 input {
-                background: transparent;
+               /*background: transparent;*/
                 width: 31.2%;
+                /*pointer-events:none;*/
             }
 
             .fourth_section_2 select {
@@ -221,6 +222,18 @@
 
             #product { pointer-events: none; color: #808080; }
             #product.active { pointer-events: auto; color:black; }
+            #customFluidInput{ display: none; width: 40%;}
+            
+            .active{
+                pointer-events: auto;
+                background:solid;
+            }
+            
+            .inactive{
+                pointer-events: none;
+                background:transparent;
+                
+            }
             
             
         </style>
@@ -264,12 +277,17 @@
             <select id="fluid">
                 
             </select>
-            <span><input type="checkbox" name="custom_fluid">Custom fluid</span>
-            <br>		
+            <span><input type="checkbox" id="customFluid" name="custom_fluid">Custom fluid</span>
+            <input type="text" id="customFluidInput" name="custom_fluid_input"/>
+            <br>
+            <div id="formulaContainer">
             <label>Formula:</label>
+            
             <select id="formula">
+                
                
-            </select>		
+            </select>	
+            </div>
         </div>
 
         <hr width="100%" size="2" noshade color="white">

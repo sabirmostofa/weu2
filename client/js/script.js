@@ -26,21 +26,27 @@ function checkError($) {
             $('#customFluidInput').removeClass('error');
 
         //TMP
-        error = validateLength($('#operatingTmp'), 350, -200);
+        if(validateLength($('#operatingTmp'), 350, -200))
+        	error=true;;
 
         //Pressure
-        error = validateLength($('#operatingPrs'), 200, 0);
+        if(error = validateLength($('#operatingPrs'), 200, 0))
+        	error=true;;
 
         //viscosity
-        error = validateLength($('#operatingVis'), 2, 0.01);
+        if( validateLength($('#operatingVis'), 2, 0.01))
+        	error=true;;
 
         //Density
-        error = validateLength($('#operatingDen'), 200, 0.01);
+        if(validateLength($('#operatingDen'), 200, 0.01))
+        	error=true;;
 
 
     } else {
-        error = validateLength($('#operatingTmp'), 1000, -273.15);
-        error = validateLength($('#operatingPrs'), 500, 0.1);
+        if(validateLength($('#operatingTmp'), 1000, -273.15))
+        	error=true;;
+       if(validateLength($('#operatingPrs'), 500, 0.1))
+       	   error=true;;
 
     }
 
@@ -94,7 +100,7 @@ function putProducts(tech) {
                     var img = 'img/' + item.image + '.svg';
                     $('#technoImg').attr('src', img);
                     $('#technoImg').show();
-                    if (localStorage.getItem('product') === null) {
+                    if (localStorage.getItem('product') === null || localStorage.getItem('product') !== item.name ) {
                         localStorage.setItem('productImg', img);
                         localStorage.setItem('product', item.name);
                     }
@@ -356,6 +362,9 @@ jQuery(document).ready(function($) {
             alert('Please fix the fields with red borders to continue');
             return;
         }
+        
+        if ($('#customFluid').is(':checked'))
+        	return;
 
 
         // var t1, p1,d1,v1;

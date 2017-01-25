@@ -1,34 +1,53 @@
-
 //s0542338; Sabirul Mostofa
+function validateLength(obj, a, b) {
+    if (obj.val() > a || obj.val() < b) {
+        obj.addClass('error');
+        return true;
+    } else
+        obj.removeClass('error');
+    return false;
 
-function checkError($){
-	
-	// if checked
-
-	if ($('#customFluid').is(':checked')) {
-		
-		console.log("checked");
-		
-	
-	}
-	else{
-      if($('#operatingTmp').val() > 1000 || $('#operatingTmp').val() < -273.15  ){
-	  $('#operatingTmp').addClass('error');
-	
-   }else{
-	$('#operatingTmp').removeClass('error');
-}
-	
-
-if($('#operatingPrs').val() > 500 || $('#operatingPrs').val() < 0.1 ){
-	$('#operatingPrs').addClass('error');
-}else{
-	$('#operatingPrs').removeClass('error');
-}
-	}
-	
 }
 
+function checkError($) {
+
+    error = false;
+
+    // if checked
+
+    if ($('#customFluid').is(':checked')) {
+
+        console.log("checked");
+
+        if ($('#customFluidInput').val().length === 0) {
+            $('#customFluidInput').addClass('error');
+            error = true;
+        } else
+            $('#customFluidInput').removeClass('error');
+
+        //TMP
+        error = validateLength($('#operatingTmp'), 350, -200);
+
+        //Pressure
+        error = validateLength($('#operatingPrs'), 200, 0);
+
+        //viscosity
+        error = validateLength($('#operatingVis'), 2, 0.01);
+
+        //Density
+        error = validateLength($('#operatingDen'), 200, 0.01);
+
+
+    } else {
+        error = validateLength($('#operatingTmp'), 1000, -273.15);
+        error = validateLength($('#operatingPrs'), 500, 0.1);
+
+    }
+
+    return error;
+
+
+}
 
 
 
@@ -56,11 +75,11 @@ function putStandard(item) {
 function putProducts(tech) {
     if (tech === 'techAll')
         return;
-     var $ = jQuery;
+    var $ = jQuery;
     $('#product').html('');
     var active = true;
-   
-    $.each(techs, function (i, item) {
+
+    $.each(techs, function(i, item) {
 
         if (tech === item.name) {
 
@@ -69,23 +88,23 @@ function putProducts(tech) {
 
             // alert(item.product.length);
 
-            $.each(item.product, function (i, item) {
+            $.each(item.product, function(i, item) {
                 //change image
                 if (i === 0) {
                     var img = 'img/' + item.image + '.svg';
                     $('#technoImg').attr('src', img);
                     $('#technoImg').show();
-                    if(localStorage.getItem('product') === null){
-                    localStorage.setItem('productImg', img);
-                    localStorage.setItem('product', item.name);
-                   }
+                    if (localStorage.getItem('product') === null) {
+                        localStorage.setItem('productImg', img);
+                        localStorage.setItem('product', item.name);
+                    }
                 }
 
 
                 $('#product').append($('<option>', {
                     value: item.name,
                     text: item.name,
-                    img:item.image
+                    img: item.image
                 }));
             });
         }
@@ -93,16 +112,16 @@ function putProducts(tech) {
 
     // change image one on product change another one on technology change
 
-    $('#product').change(function () {
+    $('#product').change(function() {
 
         var prod = $('option:selected', this).attr('img');
         var img = 'img/' + prod + '.svg';
         localStorage.setItem('productImg', img);
-        
+
         localStorage.setItem('product', $('option:selected', this).attr('value'));
 
         $('#technoImg').attr('src', img);
-        
+
 
     });
 
@@ -116,8 +135,7 @@ function putProducts(tech) {
     $('#productContainer').show();
 
 
-}
-;
+};
 
 function putLiquids() {
 
@@ -125,7 +143,7 @@ function putLiquids() {
     $('#fluid').html("");
     $('#formula').html("");
     var put = false;
-    $.each(liquids, function (i, item) {
+    $.each(liquids, function(i, item) {
 
         if (!put) {
             putStandard(item);
@@ -142,8 +160,7 @@ function putLiquids() {
         }));
     });
 
-}
-;
+};
 
 function putGases() {
     var $ = jQuery
@@ -152,7 +169,7 @@ function putGases() {
     $('#formula').html("");
 
     var put = false;
-    $.each(gases, function (i, item) {
+    $.each(gases, function(i, item) {
         if (!put) {
             putStandard(item);
             put = true;
@@ -169,17 +186,16 @@ function putGases() {
         }));
     });
 
-}
-;
+};
 
 
-jQuery(document).ready(function ($) {
+jQuery(document).ready(function($) {
 
-// save all data to localStorage
+    // save all data to localStorage
 
 
-//localstorage save triggers selects, input boxes 
-    $('select').change(function () {
+    //localstorage save triggers selects, input boxes 
+    $('select').change(function() {
 
         name = $(this).attr('name');
 
@@ -189,7 +205,7 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    $('input[type=number], input[type=text] ').on('input', function () {
+    $('input[type=number], input[type=text] ').on('input', function() {
 
         name = $(this).attr('name');
 
@@ -211,13 +227,15 @@ jQuery(document).ready(function ($) {
     }
     $('.fourth_section_2 input').prop('disabled', true);
 
-//load data from api
+    //load data from api
 
-// set to sync then switch back at the end
-    jQuery.ajaxSetup({async: false});
-    $.get("/api/technologies", function (data, status) {
+    // set to sync then switch back at the end
+    jQuery.ajaxSetup({
+        async: false
+    });
+    $.get("/api/technologies", function(data, status) {
         techs = JSON.parse(data).technologies;
-        $.each(techs, function (i, item) {
+        $.each(techs, function(i, item) {
 
             $('#technology').append($('<option>', {
                 value: item.name,
@@ -231,7 +249,7 @@ jQuery(document).ready(function ($) {
 
 
     // change product on technology change
-    $('#technology').change(function () {
+    $('#technology').change(function() {
         $('#product').html("");
         var tech = this.value;
         //alert(tech);
@@ -251,29 +269,29 @@ jQuery(document).ready(function ($) {
 
     // end of change product
 
-//load liquid data and initiate select
-    $.get("/api/fluids?fluidType=liquid", function (data, status) {
+    //load liquid data and initiate select
+    $.get("/api/fluids?fluidType=liquid", function(data, status) {
         liquids = JSON.parse(data).liquids;
         putLiquids();
 
     })
 
 
-//load gas data
+    //load gas data
 
-    $.get("/api/fluids?fluidType=gas", function (data, status) {
+    $.get("/api/fluids?fluidType=gas", function(data, status) {
         gases = JSON.parse(data).gases;
     })
 
 
-//onchange fluid or formula
+    //onchange fluid or formula
 
 
 
-    $('#fluid').change(function () {
+    $('#fluid').change(function() {
 
         var prod = this.value;
-        $.each(liquids, function (i, item) {
+        $.each(liquids, function(i, item) {
 
             if (prod === item.name) {
                 $('#formula').val(item.formula);
@@ -282,7 +300,7 @@ jQuery(document).ready(function ($) {
             }
         });
 
-        $.each(gases, function (i, item) {
+        $.each(gases, function(i, item) {
 
             if (prod === item.name) {
                 $('#formula').val(item.formula);
@@ -293,10 +311,10 @@ jQuery(document).ready(function ($) {
     });
 
 
-    $('#formula').change(function () {
+    $('#formula').change(function() {
 
         var prod = this.value;
-        $.each(liquids, function (i, item) {
+        $.each(liquids, function(i, item) {
 
             if (prod === item.formula) {
                 $('#fluid').val(item.name);
@@ -305,7 +323,7 @@ jQuery(document).ready(function ($) {
             }
         });
 
-        $.each(gases, function (i, item) {
+        $.each(gases, function(i, item) {
 
             if (prod === item.formula) {
                 $('#fluid').val(item.name);
@@ -319,28 +337,32 @@ jQuery(document).ready(function ($) {
 
 
     // radio change on clicks
-    $('#liquidRadio').click(function () {
+    $('#liquidRadio').click(function() {
         putLiquids();
         localStorage.setItem('radio', 'liquid')
 
     });
 
-    $('#gasRadio').click(function () {
+    $('#gasRadio').click(function() {
         putGases();
         localStorage.setItem('radio', 'gas');
     });
 
-//submit button triggers
+    //submit button triggers
 
-    $("#submit").click(function (e) {
-    		checkError($);
-    		
+    $("#submit").click(function(e) {
+        e.preventDefault();
+        if (checkError($)) {
+            alert('Please fix the fields with red borders to continue');
+            return;
+        }
+
 
         // var t1, p1,d1,v1;
         t2 = $("#operatingTmp").val();
         p2 = $("#operatingPrs").val();
         var liquid = $('#formula').val();
-        $.each(liquids, function (i, item) {
+        $.each(liquids, function(i, item) {
 
             if (liquid === item.formula) {
                 t1 = item.temp;
@@ -350,7 +372,7 @@ jQuery(document).ready(function ($) {
             }
         });
 
-        $.each(gases, function (i, item) {
+        $.each(gases, function(i, item) {
 
             if (liquid === item.formula) {
                 t1 = item.temp;
@@ -368,12 +390,12 @@ jQuery(document).ready(function ($) {
         $("#operatingDen").val(d2.toFixed(4));
         //alert(d2 + ' ' + v2 );
 
-        e.preventDefault();
+
 
     });
 
     // custom fluid
-    $("#customFluid").change(function () {
+    $("#customFluid").change(function() {
         if (this.checked) {
             $('#fluid').hide();
             $('#formulaContainer').hide();
@@ -395,12 +417,12 @@ jQuery(document).ready(function ($) {
 
 
 
-// try to get all data from localStorage
+    // try to get all data from localStorage
 
     if (localStorage.getItem('technology') !== null)
         putProducts(localStorage.getItem('technology'))
 
-    $.each($('input[type=number], input[type=text] '), function (i, item) {
+    $.each($('input[type=number], input[type=text] '), function(i, item) {
 
         name = $(item).attr('name');
         var val = localStorage.getItem(name);
@@ -412,7 +434,7 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    $.each($('select'), function (i, item) {
+    $.each($('select'), function(i, item) {
 
         name = $(item).attr('name');
         var valS = localStorage.getItem(name);
@@ -457,6 +479,8 @@ jQuery(document).ready(function ($) {
 
     }
 
-//back to original ajax settings
-    jQuery.ajaxSetup({async: true});
+    //back to original ajax settings
+    jQuery.ajaxSetup({
+        async: true
+    });
 });

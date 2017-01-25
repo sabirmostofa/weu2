@@ -1,4 +1,38 @@
 
+//s0542338; Sabirul Mostofa
+
+function checkError($){
+	
+	// if checked
+
+	if ($('#customFluid').is(':checked')) {
+		
+		console.log("checked");
+		
+	
+	}
+	else{
+      if($('#operatingTmp').val() > 1000 || $('#operatingTmp').val() < -273.15  ){
+	  $('#operatingTmp').addClass('error');
+	
+   }else{
+	$('#operatingTmp').removeClass('error');
+}
+	
+
+if($('#operatingPrs').val() > 500 || $('#operatingPrs').val() < 0.1 ){
+	$('#operatingPrs').addClass('error');
+}else{
+	$('#operatingPrs').removeClass('error');
+}
+	}
+	
+}
+
+
+
+
+
 function calcuateDensity(d1, t1, t2, p1, p2) {
     d2 = d1 * ((273.15 + t1) / (273.15 + t2)) * (p2 / p1);
     return d2;
@@ -299,6 +333,8 @@ jQuery(document).ready(function ($) {
 //submit button triggers
 
     $("#submit").click(function (e) {
+    		checkError($);
+    		
 
         // var t1, p1,d1,v1;
         t2 = $("#operatingTmp").val();

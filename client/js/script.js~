@@ -22,10 +22,8 @@ function putStandard(item) {
 function putProducts(tech) {
     if (tech === 'techAll')
         return;
-     var $ = jQuery;
-    $('#product').html('');
     var active = true;
-   
+    var $ = jQuery;
     $.each(techs, function (i, item) {
 
         if (tech === item.name) {
@@ -41,17 +39,14 @@ function putProducts(tech) {
                     var img = 'img/' + item.image + '.svg';
                     $('#technoImg').attr('src', img);
                     $('#technoImg').show();
-                    if(localStorage.getItem('product') === null){
                     localStorage.setItem('productImg', img);
                     localStorage.setItem('product', item.name);
-                   }
                 }
 
 
                 $('#product').append($('<option>', {
                     value: item.name,
-                    text: item.name,
-                    img:item.image
+                    text: item.name
                 }));
             });
         }
@@ -61,14 +56,10 @@ function putProducts(tech) {
 
     $('#product').change(function () {
 
-        var prod = $('option:selected', this).attr('img');
+        var prod = this.value;
         var img = 'img/' + prod + '.svg';
-        localStorage.setItem('productImg', img);
-        
-        localStorage.setItem('product', $('option:selected', this).attr('value'));
 
         $('#technoImg').attr('src', img);
-        
 
     });
 
@@ -244,7 +235,6 @@ jQuery(document).ready(function ($) {
             if (prod === item.name) {
                 $('#formula').val(item.formula);
                 putStandard(item);
-                localStorage.setItem('formula', item.formula);
             }
         });
 
@@ -253,7 +243,6 @@ jQuery(document).ready(function ($) {
             if (prod === item.name) {
                 $('#formula').val(item.formula);
                 putStandard(item);
-                localStorage.setItem('formula', item.formula);
             }
         });
     });
@@ -267,7 +256,6 @@ jQuery(document).ready(function ($) {
             if (prod === item.formula) {
                 $('#fluid').val(item.name);
                 putStandard(item);
-                localStorage.setItem('fluid', item.name);
             }
         });
 
@@ -276,7 +264,6 @@ jQuery(document).ready(function ($) {
             if (prod === item.formula) {
                 $('#fluid').val(item.name);
                 putStandard(item);
-                localStorage.setItem('fluid', item.name);
             }
         });
     });
@@ -284,7 +271,7 @@ jQuery(document).ready(function ($) {
 
 
 
-    // radio change on clicks
+    // change on clicks
     $('#liquidRadio').click(function () {
         putLiquids();
         localStorage.setItem('radio', 'liquid')

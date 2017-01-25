@@ -10,5 +10,6 @@
          "body-parser":"*",
          "socket.io":"*"
 
-       }
+       },
+       "scripts": { "start": "node index.js"}
 }

@@ -248,13 +248,13 @@
 
             <img id="technoImg" src="" alt="RotaMass"/>
             <label>Technology:</label>
-            <select id="technology" class="first_section_dropdown">
-                <option value="Coriolis mass flowmeter (RotaMASS)">Please select one technology</option>
+            <select id="technology" name="technology" class="first_section_dropdown">
+                <option value="techAll">Please select one technology</option>
             </select>		
             <br>	
             <div id="productContainer">
                 <label>Product line:</label>
-                <select id="product" class="first_section_dropdown">
+                <select id="product" name="product" class="first_section_dropdown">
                     <option value="all">All</option>
                 </select>
             </div>
@@ -274,7 +274,7 @@
 
         <div class="third_section">
             <label>Fluid:</label>
-            <select id="fluid">
+            <select id="fluid" name="fluid">
                 
             </select>
             <span><input type="checkbox" id="customFluid" name="custom_fluid">Custom fluid</span>
@@ -283,7 +283,7 @@
             <div id="formulaContainer">
             <label>Formula:</label>
             
-            <select id="formula">
+            <select id="formula" name="formula">
                 
                
             </select>	
@@ -300,17 +300,17 @@
         <form action="index.html" method="post">
             <div class="fourth_section_1">
                 <label for="temperature">Temperature:</label><img src="img/help.svg"/>
-                <input type="text" name="temperatureMin" value="">
-                <input id="operatingTmp" type="text" name="temperatureOperating" value="">
-                <input type="text" name="temperatureMax" value="">	
+                <input type="number" name="temperatureMin" value="">
+                <input id="operatingTmp" type="number" name="temperatureOperating" value="">
+                <input type="number" name="temperatureMax" value="">	
                 <select>
                     <option value="Celsius">°C</option>
                 </select>
                 <br>
                 <label for="pressure" class="label">Pressure:</label><img src="img/help.svg"/>
-                <input type="text" name="pressureMin" value="">
-                <input id="operatingPrs" type="text" name="pressureOperating" value="@pressure">
-                <input type="text" name="pressureMax" value="">	
+                <input type="number" name="pressureMin" value="">
+                <input id="operatingPrs" type="number" name="pressureOperating" value="">
+                <input type="number" name="pressureMax" value="">	
                 <select>
                     <option value="bar">bar</option>
                 </select>
@@ -321,13 +321,13 @@
         <!--</div>-->
         <div class="fourth_section_2">
             <label for="viscosity" class="label">Viscosity:</label>
-            <input id="operatingVis" type="text" name="viscosityValue" value="">
+            <input id="operatingVis" type="number" name="viscosityValue" value="">
             <select>
                 <option value="mPas">mPas</option>
             </select>
             <br>
             <label for="density" class="label">Density:</label>
-            <input id="operatingDen" type="text" name="densityValue" value="">
+            <input id="operatingDen" type="number" name="densityValue" value="">
             <select>
                 <option value="kg">kg/m³</option>
             </select> 		  		
@@ -348,9 +348,9 @@
         </div>
         <div class="fifth_section_2">	
             <label for="flowrate" class="label">Flow rate:</label>
-            <input type="text" name="flowrateMin" value="">
-            <input type="text" name="flowrateOperating" value="100">
-            <input type="text" name="flowrateMax" value="">	
+            <input type="number" name="flowrateMin" value="">
+            <input type="number" name="flowrateOperating" value="100">
+            <input type="number" name="flowrateMax" value="">	
             <input type="text" name="flowrateDesign" value="">
             <select>
                 <option value="kgh">kg/h</option>

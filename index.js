@@ -18,7 +18,9 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/client/index.html');
 });
 
-
+app.get('/script_synchronous_worker.js', (req, res) => {
+    res.sendFile(__dirname + '/client/js/script_synchronous_worker.js');
+});
 
 //api
 

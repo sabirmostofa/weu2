@@ -1,13 +1,29 @@
+
+function calcuateDensity(d1, t1, t2, p1, p2) {
+    d2 = d1 * ((273.15 + T1) / (273.15 + T2)) * (p2 / p1);
+    return d2;
+
+}
+
+function calculateVisco(V1, T1, T2) {
+
+    V2 = (V1 * (273.15 + T1)) / (273.15 + T2);
+    return v2;
+}
+
+
 jQuery(document).ready(function ($) {
 
 // try to get data from localStorage
 
 
 
+
+
     $('#productContainer').hide();
     $('#technoImg').hide();
 
-//load data from data
+//load data from api
     $.get("/api/technologies", function (data, status) {
         techs = JSON.parse(data).technologies;
         $.each(techs, function (i, item) {
@@ -82,7 +98,13 @@ jQuery(document).ready(function ($) {
 //load liquid data and initiate select
     $.get("/api/fluids?fluidType=liquid", function (data, status) {
         liquids = JSON.parse(data).liquids;
+        var put = false;
         $.each(liquids, function (i, item) {
+            if (!put) {
+                putStandard(item);
+                put = true;
+            }
+
 
             $('#fluid').append($('<option>', {
                 value: item.name,
@@ -107,19 +129,31 @@ jQuery(document).ready(function ($) {
 
 //onchange fluid or formula
 
+    function putStandard(item) {
+        $("#operatingTmp").val(item.temp);
+        $("#operatingVis").val(item.viscosity);
+        $("#operatingPrs").val(item.pressure);
+        $("#operatingDen").val(item.density);
+
+    }
+
     $('#fluid').change(function () {
 
         var prod = this.value;
         $.each(liquids, function (i, item) {
 
-            if (prod === item.name)
+            if (prod === item.name) {
                 $('#formula').val(item.formula);
+                putStandard(item);
+            }
         });
-        
-             $.each(gases, function (i, item) {
 
-            if (prod === item.name)
+        $.each(gases, function (i, item) {
+
+            if (prod === item.name) {
                 $('#formula').val(item.formula);
+                putStandard(item);
+            }
         });
     });
 
@@ -129,27 +163,36 @@ jQuery(document).ready(function ($) {
         var prod = this.value;
         $.each(liquids, function (i, item) {
 
-            if (prod === item.formula)
+            if (prod === item.formula) {
                 $('#fluid').val(item.name);
+                putStandard(item);
+            }
         });
-        
-               $.each(gases, function (i, item) {
 
-            if (prod === item.formula)
+        $.each(gases, function (i, item) {
+
+            if (prod === item.formula) {
                 $('#fluid').val(item.name);
+                putStandard(item);
+            }
         });
     });
-    
-    
-    
+
+
+
 
     // change on clicks
     $('#liquidRadio').click(function () {
 
         $('#fluid').html("");
         $('#formula').html("");
+        var put = false;
         $.each(liquids, function (i, item) {
 
+            if (!put) {
+                putStandard(item);
+                put = true;
+            }
             $('#fluid').append($('<option>', {
                 value: item.name,
                 text: item.name
@@ -169,7 +212,12 @@ jQuery(document).ready(function ($) {
         $('#fluid').html("");
         $('#formula').html("");
 
+        var put = false;
         $.each(gases, function (i, item) {
+            if (!put) {
+                putStandard(item);
+                put = true;
+            }
 
             $('#fluid').append($('<option>', {
                 value: item.name,
@@ -184,6 +232,16 @@ jQuery(document).ready(function ($) {
 
     });
 
+//submit button triggers
+
+$("#submit").click(function(e){
+    
+        var t2= $("#operatingTmp").val();
+        var p2 = $("#operatingPrs").val();
+        alert($('#formula').val());
+        e.preventDefault();
+    
+});
 
 
 });

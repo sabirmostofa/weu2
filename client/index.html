@@ -78,7 +78,7 @@
 
             .third_section select {		
                 position: relative;
-                width: 42%;
+                width: 40%;
             }
 
             .third_section span {
@@ -254,7 +254,7 @@
         </div>	
         <div class="second_section">
             <label for="fluidtype">Fluid Type:</label>
-            <input id="liquidRadio" type="radio" name="typeRadio" value="liquid"checked="true">liquid
+            <input id="liquidRadio" type="radio" name="typeRadio" value="liquid" checked="checked"/>liquid
             <input id="gasRadio" type="radio" name="typeRadio" value="gaseous">gaseous
         </div>
         <hr width="100%" size="2" noshade color="white">
@@ -283,7 +283,7 @@
             <div class="fourth_section_1">
                 <label for="temperature">Temperature:</label><img src="img/help.svg"/>
                 <input type="text" name="temperatureMin" value="">
-                <input type="text" name="temperatureOperating" value="@temperature">
+                <input id="operatingTmp" type="text" name="temperatureOperating" value="">
                 <input type="text" name="temperatureMax" value="">	
                 <select>
                     <option value="Celsius">°C</option>
@@ -291,7 +291,7 @@
                 <br>
                 <label for="pressure" class="label">Pressure:</label><img src="img/help.svg"/>
                 <input type="text" name="pressureMin" value="">
-                <input type="text" name="pressureOperating" value="@pressure">
+                <input id="operatingPrs" type="text" name="pressureOperating" value="@pressure">
                 <input type="text" name="pressureMax" value="">	
                 <select>
                     <option value="bar">bar</option>
@@ -300,16 +300,16 @@
                         <option value="abs">abs</option>
                     </select></span>
             </div>
-        </div>
+        <!--</div>-->
         <div class="fourth_section_2">
             <label for="viscosity" class="label">Viscosity:</label>
-            <input type="text" name="viscosityValue" value="1.0026">
+            <input id="operatingVis" type="text" name="viscosityValue" value="">
             <select>
                 <option value="mPas">mPas</option>
             </select>
             <br>
             <label for="density" class="label">Density:</label>
-            <input type="text" name="densityValue" value="@density">
+            <input id="operatingDen" type="text" name="densityValue" value="">
             <select>
                 <option value="kg">kg/m³</option>
             </select> 		  		
@@ -333,7 +333,7 @@
             <input type="text" name="flowrateMin" value="">
             <input type="text" name="flowrateOperating" value="100">
             <input type="text" name="flowrateMax" value="">	
-            <input tzpe="text" name="flowrateDesign" value="">
+            <input type="text" name="flowrateDesign" value="">
             <select>
                 <option value="kgh">kg/h</option>
             </select>
@@ -368,7 +368,7 @@
         <div class="push_buttons">
             <hr width="100%" size="0.5" noshade color="white">
             <hr width="100%" size="0.1" noshade color="red">
-            <div class="left_buttons"><input type="image" value="submit" src="img/Calculate.svg"/><label> Calculate</label></div>
+            <div class="left_buttons"><input id="submit" type="image"  src="img/Calculate.svg"/><label> Calculate</label></div>
             <div class="left_buttons"><input type="image" src="img/Reset.svg"/><label> Reset</label></div>
             <div class="right_button"><input type="image" src="img/Projectdata.svg"/><label> Project settings</label></div>
             <hr width="100%" size="0.1" noshade color="red">		

@@ -2,7 +2,13 @@
     "name": "weu2",
     "version": "1.0.0",
     "keywords": ["util", "functional", "server", "client", "browser"],
-    "author": "sab",
+    "author": "s0542338",
     "contributors": [],
-    "dependencies": {}
+    "dependencies": {
+        
+         "express":"*",
+         "body-parser":"*",
+         "socket.io":"*"
+
+       }
 }
